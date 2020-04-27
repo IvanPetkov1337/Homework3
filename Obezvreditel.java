@@ -8,19 +8,19 @@ Obezvreditel2.0 doesn't do his job right , the poor guy will lose most of his Ko
 
 public class Obezvreditel {
 
-    static int Battery = 4;
+    static byte Battery = 4;
 
     public static void main(String[] args) {
         while (Battery > 0) {
-            Movement();
-            FightingSystem();
-            Communication();
+            movement();
+            fightingSystem();
+            communication();
             System.out.print( "Battery level is: " + Battery + "\n");
-        } System.out.println( "Obezvreditel2.0 ran out of batteries, time to recharge" + "\n" ); Charger();
+        } System.out.println( "Obezvreditel2.0 ran out of batteries, time to recharge" + "\n" ); charger();
 
     }
 
-    public static void Movement() {
+    public static void movement() {
         System.out.print("Enter object: Chair/Wall/Nothing :" + "\n");
         Scanner ScanObject = new Scanner(System.in);
         String Object = ScanObject.nextLine();
@@ -38,12 +38,12 @@ public class Obezvreditel {
             }
         } else{
             System.out.print("Invalid object" + "\n");
-            Movement();
+            movement();
         }
 
     }
 
-    public static void FightingSystem() {
+    public static void fightingSystem() {
 
         System.out.print( "Number of pixels : " + "\n");
         Scanner ScanPixels = new Scanner(System.in);
@@ -66,7 +66,7 @@ public class Obezvreditel {
     }
 
 
-    public static void Charger(){
+    public static void charger(){
         Random ChargeRNG = new Random();
         int ChargeChance1   = ChargeRNG.nextInt(1000 + 1);
         int ChargeChance2  = ChargeRNG.nextInt(1000 + 1);
@@ -76,16 +76,16 @@ public class Obezvreditel {
         }
         else if  ( ChargeChance1 == ChargeChance2) {
             System.out.print("Something magical happened, Obezvreditel2.0 got confused and has to retake his action"  + "\n");
-            Charger();
+            charger();
         }
 
-        else System.out.print("\n" + "Obezvreditel2.0 found a empty charger, no battery recharge for this bad boy. He won't give up and he'll try again !" + "\n"); Charger();
+        else System.out.print("\n" + "Obezvreditel2.0 found a empty charger, no battery recharge for this bad boy. He won't give up and he'll try again !" + "\n"); charger();
 
 
 
 
     }
-    public static void Communication(){
+    public static void communication(){
         for(int i = 10; i > 0 ; i--){
             if (i%2 == 0) System.out.print("I am a Robottttt " + i + "\n" );
         }
